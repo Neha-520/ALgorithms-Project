@@ -12,7 +12,6 @@ export default class LinearSearch extends React.Component {
       message: "",
       disabled: false,
       found: false,
-
       findex: 0,
       target: null,
       start: false,
@@ -38,15 +37,15 @@ export default class LinearSearch extends React.Component {
   linearSearchAnimations = (array, target) => {
     let animations = [];
     for (let i = 0; i < array.length; i++) {
-      let [ele]=array[i];
+      let [element]=array[i];
        
-    const tar = parseInt(target);
-      if (ele === tar) {
-        animations.push([i, ele, true]);
+    const t = parseInt(target);
+      if (element === t) {
+        animations.push([i, element, true]);
       //  console.log(i);
-        break;
+      break;
       } else {
-        animations.push([i, ele, false]);
+        animations.push([i, element, false]);
       }
     }
     console.log(animations);
@@ -90,11 +89,12 @@ export default class LinearSearch extends React.Component {
       completed: completed
     });
   };
+
   componentDidMount() {
     this.Arrayreset();
   }
   componentDidUnMount() {
-    this.resetArray();
+    this.Arrayreset();
   }
 
   //main function linear search
@@ -102,17 +102,18 @@ export default class LinearSearch extends React.Component {
     
     let msg = "";
     const target = document.getElementById("target").value;
-    if (target === "") {
+    // console.log(target);
+    if (target === "" || target === "0") {
       return undefined;
     }
     // eslint-disable-next-line
     const animations = this.linearSearchAnimations(this.state.array, target);
     console.log(animations);
-    //console.log(newa);
+    
     let  count=0;
     for(var i=0;i<animations.length;i++)
     {  count++;
-      const [index,value,found]=animations[i];
+      const [index,value,found]=animations[i]; //destructuring
       const bars=document.getElementsByClassName("linear-array-bar");
       const bar=bars[index];
       const barStyle=bar.style;
@@ -164,7 +165,7 @@ export default class LinearSearch extends React.Component {
      }
     
     }
-    console.log(count);
+console.log(count);
     
   
   setTimeout(()=>{
