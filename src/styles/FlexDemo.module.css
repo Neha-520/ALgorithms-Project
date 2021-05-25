@@ -1,0 +1,17 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin-top:5%;
+}
+.subContainer{
+    display: flex;
+    width: 80%;
+    margin:auto;
+    margin-top:0;
+    justify-content: space-between;
+    max-height: 50%;
+}
+body{
+    background-color: black;
+}

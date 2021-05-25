@@ -1,0 +1,29 @@
+.binary-array-bar {
+    background-color: blue;
+    display: inline-block;
+    margin: 5px;
+    color: #fff;
+    width: 60px;
+    text-align: center;
+    padding: 8px;
+    border-radius: 3px;
+  }
+  .highlight {
+    transition: ease-in 300ms;
+    transform: scale3d(1.25, 1.25, 1.25);
+    margin: 1.5rem;
+  }
+  .binary-array-bar span {
+    padding: 3px;
+    background-color: white;
+    color: #000;
+    margin-top: 10px;
+    border-radius: 3px;
+    display: inline-block;
+    width: 30px;
+  }
+  
+  
+  .grad {
+    background-image: linear-gradient(red, yellow);
+  }

@@ -1,0 +1,52 @@
+ 
+ .linear-array-bar {
+  background-color: blue;
+  display: inline-block;
+  margin: 5px;
+  color: #fff;
+  width: 60px;
+  text-align: center;
+  padding: 8px;
+  border-radius: 3px;
+    
+  }
+  @keyframes animate {
+    0% {
+      transform: scale3d(1, 1, 1);
+    }
+    50% {
+      transform: scale3d(1.3, 1.3, 1.3);
+    }
+    100% {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  .linear-array-bar span {
+    padding: 3px;
+    background-color: white;
+    color: #000;
+    margin-top: 10px;
+    border-radius:2px;
+    height: 30px;
+    display: inline-block;
+    width: 30px;
+  }
+  
+  .animate-button {
+    /* animation-duration: 1s; */
+    animation-name: animate;
+    animation-iteration-count: 2, 0, infinite;
+    /* animation-iteration-count:4s; */
+    /* animation-iteration-count: infinite; */
+    /* animation-play-state: running; */
+  }
+  .highlight {
+    transition: ease-in 300ms;
+    transform: scale3d(1.25, 1.25, 1.25);
+    
+    /* border:7px solid rgb(15, 127, 161); */
+    margin: 1.5rem;
+  }
+  .grad {
+    background-image: linear-gradient(red, yellow);
+  }
