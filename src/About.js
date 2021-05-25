@@ -15,7 +15,7 @@ export default function  About (){
     
         return (
        <div className = "about">
-           <h1 className="first hello"  data-aos="fade-up" data-aos-duration="1000">About ss</h1>
+           <h1 className="first hello"  data-aos="fade-up" data-aos-duration="1000">About </h1>
            <section> 
                <h1 >What Algoviz actually is ?</h1>
                <p className = "foot">

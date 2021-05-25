@@ -83,4 +83,3 @@ export function QuickSortAlgorithm(array) {
   //   auxillaryArray[firstIndex] = auxillaryArray[secondIndex];
   //   auxillaryArray[secondIndex] = temp;
   // }
-s
