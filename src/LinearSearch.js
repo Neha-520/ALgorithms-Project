@@ -247,7 +247,6 @@ console.log(count);
             ) : null}
           </center>
         </div>
-      // </div>
     );
               
   }
