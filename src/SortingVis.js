@@ -202,10 +202,10 @@ const SortingVis = () => {
         <label for="typeinp">Speed:</label>
             <input id="typeinp" type="range" min="0" max="10" value={value} step="0.05" onChange={handleChange} />
         <center>
-          <button className="btn btn-lg btn-dark m-3" onClick={resetArray}>Reset Array</button>
-          <button className="btn btn-lg btn-dark m-3" onClick={mergeSort}>Merge Sort</button>
-          <button className="btn btn-lg btn-dark m-3" onClick={BubbleSort}>Bubble Sort</button>
-          <button className="btn btn-lg btn-dark m-3" onClick={QuickSort}>Quick Sort</button>
+          <button className="btn btn-light headColor mt-2 m-3" onClick={resetArray}>Reset Array</button>
+          <button className="btn btn-light headColor mt-2 m-3" onClick={mergeSort}>Merge Sort</button>
+          <button className="btn btn-light headColor mt-2 m-3" onClick={BubbleSort}>Bubble Sort</button>
+          <button className="btn btn-light headColor mt-2 m-3" onClick={QuickSort}>Quick Sort</button>
         </center>
         </div>
       </div>
