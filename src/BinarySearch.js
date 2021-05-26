@@ -120,7 +120,7 @@ class BinarySearch extends Component {
     );
 
     for (let k = 0; k < animations.length; k++) {
-      const [left, right, mid, found] = animations[k];
+      const [left, right, mid, found] = animations[k]; //destructuring
       count++;
       if (k === animations.length - 1 && found) {
         msg = `${target} found at index ${mid} 😄`;
@@ -187,7 +187,7 @@ class BinarySearch extends Component {
                   type='number'
                   id='binarySearchTargetVal'
                   className='mr-2 form-control'
-                  placeholder='Element to be searched'
+                  placeholder='Search Element'
                 />
                 <div className='input-group-append'>
                   <button

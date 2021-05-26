@@ -7,7 +7,7 @@ import {QuickSortAlgorithm} from './QuickSort.js';
 
 
 // Change this value for the number of bars (value) in the array.
-const NUMBER_OF_ARRAY_BARS = 300;
+const NUMBER_OF_ARRAY_BARS = 270;
 
 // This is the main color of the array bars.
 const PRIMARY_COLOR = 'rgb(236, 149, 164)';
@@ -23,12 +23,15 @@ const SortingVis = () => {
 
   const [array1, setArray1] = useState([]);
   const [value,setValue] = useState('');
+  const [disable,setDisable] = useState('false');
   const resetArray = () => {
     const a = [];
     for (let i = 0; i < NUMBER_OF_ARRAY_BARS; i++) {
       a.push(RandomInt(5, 600));
     }
+    
     setArray1(a);
+    setDisable(disable);
   }
 
   const mergeSort = () => {
@@ -67,36 +70,25 @@ const SortingVis = () => {
       if (i % 2 == 0) {
         setTimeout(() => {
           styleOne.backgroundColor = "turquoise";
-
-          styleTwo.backgroundColor = "turquoise";
-
-
-
+          styleTwo.backgroundColor = "rgb(236, 149, 164)";
 
         }, i * (100 / SPEED))
-
 
         setTimeout(() => {
           styleOne.backgroundColor = "turquoise";
           styleTwo.backgroundColor = "rgb(236, 149, 164)";
 
         }, (i + 1) * (100 / SPEED))
-
       }
       else {
-
         setTimeout(() => {
-          // styleOne.backgroundColor="#0033FF";
-          // styleTwo.backgroundColor="#0033FF";
+
           const temp = styleOne.height;
           styleOne.height = styleTwo.height;
           styleTwo.height = temp;
         }, ((i + 2) * (100 / SPEED)));
-        // styleOne.backgroundColor="#0033FF";
-        //   styleTwo.backgroundColor="#0033FF";
       }
-    }
-   
+    } 
   }
 
  const QuickSort = () => {
@@ -107,7 +99,7 @@ const SortingVis = () => {
 
     let count = 0;
     // eslint-disable-next-line
-    const [animations, sortArray] = QuickSortAlgorithm(array1);
+    const [animations] = QuickSortAlgorithm(array1);
     for (let i = 0; i < animations.length - 1; i++) {
       const isColorChange = animations[i][0] !== 'swapHeight';
       count++;
@@ -139,16 +131,16 @@ const SortingVis = () => {
         }, i * ANIMATION_SPEED_MS);
       }
     }
-    const s = document.getElementsByClassName('array-bar');
-    setTimeout(() => {
-      for (let i = 0; i < s.length; i++) {
-        //s[i].style.backgroundColor = "";
-        console.log(s[i].style.backgroundColor);
-      }
-      //this.setState({ start: false });
-      // this.generateEnable();
-    }, (count + 2) * ANIMATION_SPEED_MS);
-    
+    // const s = document.getElementsByClassName('array-bar');
+    // setTimeout(() => {
+    //   for (let i = 0; i < s.length; i++) {
+    //     //s[i].style.backgroundColor = "";
+    //     console.log(s[i].style.backgroundColor);
+    //   }
+    //   //this.setState({ start: false });
+    //   // this.generateEnable();
+    // }, (count + 2) * ANIMATION_SPEED_MS);
+  
   }
 
 
@@ -181,6 +173,7 @@ const SortingVis = () => {
  
   useEffect(() => {
     resetArray();
+    setDisable(false);
   }, []);
 
   return (
@@ -202,7 +195,7 @@ const SortingVis = () => {
         <label for="typeinp">Speed:</label>
             <input id="typeinp" type="range" min="0" max="10" value={value} step="0.05" onChange={handleChange} />
         <center>
-          <button className="btn btn-light headColor mt-2 m-3" onClick={resetArray}>Reset Array</button>
+          <button className="btn btn-light headColor mt-2 m-3" onClick={resetArray} disabled={false}>Reset Array</button>
           <button className="btn btn-light headColor mt-2 m-3" onClick={mergeSort}>Merge Sort</button>
           <button className="btn btn-light headColor mt-2 m-3" onClick={BubbleSort}>Bubble Sort</button>
           <button className="btn btn-light headColor mt-2 m-3" onClick={QuickSort}>Quick Sort</button>

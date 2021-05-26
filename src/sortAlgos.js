@@ -101,12 +101,7 @@ export function getMergeSortAnimations(array) {
       }
       return animations;
   }
-  function swap(a,b)
-  {
-      const temp=a;
-      a=b;
-      b=temp;
-  }
+  
   
   
 // export const mergeSort = (array, animation = []) => {
