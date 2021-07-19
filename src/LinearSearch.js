@@ -119,7 +119,7 @@ export default class LinearSearch extends React.Component {
       const barStyle=bar.style;
      if(found)
      {  
-      msg = `${target} found at index ${i} 😃 `;
+     let  msg = `${target} found at index ${i} 😃 `;
      setTimeout(()=>{
      this.setState(
        { 
@@ -144,7 +144,7 @@ export default class LinearSearch extends React.Component {
        if(i===19)
        completed=true;
       
-     msg=` ${target}  not present in the array 🙅‍♂️`;
+    let msg=` ${target}  not present in the array 🙅‍♂️`;
      setTimeout(()=>{
       this.setState(
         { 

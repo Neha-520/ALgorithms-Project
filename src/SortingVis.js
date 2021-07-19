@@ -67,7 +67,7 @@ const SortingVis = () => {
       const [barOneIndex, barTwoIndex] = animations[i];
       const styleOne = arrayBars[barOneIndex].style;
       const styleTwo = arrayBars[barTwoIndex].style;
-      if (i % 2 == 0) {
+      if (i % 2 === 0) {
         setTimeout(() => {
           styleOne.backgroundColor = "turquoise";
           styleTwo.backgroundColor = "rgb(236, 149, 164)";
@@ -97,12 +97,12 @@ const SortingVis = () => {
 
 
 
-    let count = 0;
+
     // eslint-disable-next-line
     const [animations] = QuickSortAlgorithm(array1);
     for (let i = 0; i < animations.length - 1; i++) {
       const isColorChange = animations[i][0] !== 'swapHeight';
-      count++;
+  
       const arrayBars = document.getElementsByClassName('arrayBar');
       if (isColorChange === true) {
         const color =
@@ -172,7 +172,7 @@ const SortingVis = () => {
 
  
   useEffect(() => {
-    resetArray();
+ 
     setDisable(false);
   }, []);
 
