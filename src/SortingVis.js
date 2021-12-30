@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './Sorting.css';
-import {getMergeSortAnimations,bubbleSort} from './sortAlgos.js';
-import {QuickSortAlgorithm} from './QuickSort.js';
+import { getMergeSortAnimations, bubbleSort } from './sortAlgos.js';
+import { QuickSortAlgorithm } from './QuickSort.js';
 
 
 
 
 // Change this value for the number of bars (value) in the array.
-const NUMBER_OF_ARRAY_BARS = 270;
+const NUMBER_OF_ARRAY_BARS = 110;
 
 // This is the main color of the array bars.
 const PRIMARY_COLOR = 'rgb(236, 149, 164)';
@@ -22,16 +22,15 @@ const SECONDARY_COLOR = 'blue';
 const SortingVis = () => {
 
   const [array1, setArray1] = useState([]);
-  const [value,setValue] = useState('');
-  const [disable,setDisable] = useState('false');
+  const [value, setValue] = useState('');
+
   const resetArray = () => {
     const a = [];
     for (let i = 0; i < NUMBER_OF_ARRAY_BARS; i++) {
-      a.push(RandomInt(5, 600));
+      a.push(RandomInt(5, 500));
     }
-    
+
     setArray1(a);
-    setDisable(disable);
   }
 
   const mergeSort = () => {
@@ -57,11 +56,12 @@ const SortingVis = () => {
         }, i * (100 / SPEED));
       }
     }
+
   }
   const BubbleSort = () => {
     const SPEED = value;
     const animations = bubbleSort(array1);
-   
+
     const arrayBars = document.getElementsByClassName("arrayBar");
     for (let i = 0; i < animations.length; i++) {
       const [barOneIndex, barTwoIndex] = animations[i];
@@ -88,21 +88,19 @@ const SortingVis = () => {
           styleTwo.height = temp;
         }, ((i + 2) * (100 / SPEED)));
       }
-    } 
+    }
+
   }
 
- const QuickSort = () => {
+  const QuickSort = () => {
     const ANIMATION_SPEED_MS = 10 / value;
-    
-
-
 
 
     // eslint-disable-next-line
     const [animations] = QuickSortAlgorithm(array1);
     for (let i = 0; i < animations.length - 1; i++) {
       const isColorChange = animations[i][0] !== 'swapHeight';
-  
+
       const arrayBars = document.getElementsByClassName('arrayBar');
       if (isColorChange === true) {
         const color =
@@ -118,6 +116,7 @@ const SortingVis = () => {
         setTimeout(() => {
           barOneStyle.backgroundColor = color;
           barTwoStyle.backgroundColor = color;
+
         }, i * ANIMATION_SPEED_MS);
       } else {
         // eslint-disable-next-line
@@ -128,6 +127,7 @@ const SortingVis = () => {
         const barStyle = arrayBars[barIndex].style;
         setTimeout(() => {
           barStyle.height = `${newHeight}px`;
+          barStyle.backgroundColor = 'rgb(236, 149, 164)';
         }, i * ANIMATION_SPEED_MS);
       }
     }
@@ -140,11 +140,10 @@ const SortingVis = () => {
     //   //this.setState({ start: false });
     //   // this.generateEnable();
     // }, (count + 2) * ANIMATION_SPEED_MS);
-  
   }
 
 
- const handleChange = (event) => {
+  const handleChange = (event) => {
     setValue(event.target.value);
     console.log(value);
   };
@@ -170,10 +169,9 @@ const SortingVis = () => {
   //   return true;
   // }
 
- 
+
   useEffect(() => {
- 
-    setDisable(false);
+    resetArray();
   }, []);
 
   return (
@@ -181,7 +179,6 @@ const SortingVis = () => {
 
       <div className="array-container mt-3">
         <center><h1 className="mb-5" >Sorting Algorithms</h1></center>
-        
         {
           array1.map((value, index) => (
             <div className="arrayBar"
@@ -192,14 +189,14 @@ const SortingVis = () => {
           ))
         }
         <div>
-        <label for="typeinp">Speed:</label>
-            <input id="typeinp" type="range" min="0" max="10" value={value} step="0.05" onChange={handleChange} />
-        <center>
-          <button className="btn btn-light headColor mt-2 m-3" onClick={resetArray} disabled={false}>Reset Array</button>
-          <button className="btn btn-light headColor mt-2 m-3" onClick={mergeSort}>Merge Sort</button>
-          <button className="btn btn-light headColor mt-2 m-3" onClick={BubbleSort}>Bubble Sort</button>
-          <button className="btn btn-light headColor mt-2 m-3" onClick={QuickSort}>Quick Sort</button>
-        </center>
+          <label for="typeinp">Speed:</label>
+          <input id="typeinp" type="range" min="0" max="10" value={value} step="0.05" onChange={handleChange} />
+          <center>
+            <button className="btn btn-light headColor mt-2 m-3" onClick={resetArray} >Reset Array</button>
+            <button className="btn btn-light headColor mt-2 m-3" onClick={mergeSort}>Merge Sort</button>
+            <button className="btn btn-light headColor mt-2 m-3" onClick={BubbleSort}>Bubble Sort</button>
+            <button className="btn btn-light headColor mt-2 m-3" onClick={QuickSort}>Quick Sort</button>
+          </center>
         </div>
       </div>
     </>

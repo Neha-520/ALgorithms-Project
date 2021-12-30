@@ -1,13 +1,11 @@
-.array-container{
-    position: absolute;
-   left:80px;
- }
- .arrayBar{
-     width:4px;
-     padding-top: 7px;
-     background-color: rgb(236, 149, 164);
-     display: inline-block;
-     margin: 0 1px;
- 
- }
- 
+.array-container {
+    position: relative;
+}
+.arrayBar {
+    width: 8px;
+    padding-top: 7px;
+    background-color: rgb(236, 149, 164);
+    display: inline-block;
+    margin: 0 1px;
+    border-radius: 5px;
+}
