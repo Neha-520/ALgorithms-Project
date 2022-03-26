@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Sorting.css';
 import { getMergeSortAnimations, bubbleSort } from './sortAlgos.js';
 import { QuickSortAlgorithm } from './QuickSort.js';
-
+import { RandomInt } from "./RandomInt";
 
 
 
@@ -201,9 +201,6 @@ const SortingVis = () => {
       </div>
     </>
   );
-}
-function RandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 export default SortingVis;

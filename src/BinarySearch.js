@@ -120,7 +120,7 @@ class BinarySearch extends Component {
     );
 
     for (let k = 0; k < animations.length; k++) {
-      const [left, right, mid, found] = animations[k]; //destructuring
+      const [left, right, mid, found] = animations[k];
       count++;
       if (k === animations.length - 1 && found) {
         msg = `${target} found at index ${mid} 😄`;
@@ -157,7 +157,7 @@ class BinarySearch extends Component {
 
         this.boundHighlight(left, right, arrayBars);
       }, k * 1000 * ANIMATION_SPEED_SECONDS);
-    } 
+    }
 
     setTimeout(() => {
       this.setState({ disabled: false, start: true, msgAfterExecution: msg });
@@ -167,7 +167,6 @@ class BinarySearch extends Component {
   render() {
     const {
       array,
-      found,
       disabled,
       msgAfterExecution,
       start,
@@ -175,8 +174,6 @@ class BinarySearch extends Component {
     } = this.state;
 
     return (
-    //   <div data-aos="flip-right"  data-aos-easing="ease-out-cubic"
-    // data-aos-duration="2000" >
       <div className='jumbotron jumbotron-fluid bg-white'>
         <center>
           <div className='container'>
@@ -192,7 +189,7 @@ class BinarySearch extends Component {
                 <div className='input-group-append'>
                   <button
                     onClick={() => this.binarySearch()}
-                   className="btn btn-outline-primary"
+                    className="btn btn-outline-primary"
                     type='button'
                     id='binarySearchBtn'
                     disabled={!start ? false : true}
@@ -201,7 +198,7 @@ class BinarySearch extends Component {
                   </button>
                   <button
                     onClick={() => this.resetArray()}
-                     class="btn btn-outline-primary"
+                    class="btn btn-outline-primary"
                     id='binarySearchResetArray'
                     type='button'
                     disabled={disabled}
@@ -225,15 +222,10 @@ class BinarySearch extends Component {
             ))}
           </div>
           {completed ? (
-            found ? (
-              <p className='textmessage'>{msgAfterExecution}</p>
-            ) : (
-              <p className='textmessage'>{msgAfterExecution}</p>
-            )
+            <p className='textmessage'>{msgAfterExecution}</p>
           ) : null}
         </center>
       </div>
-      // </div>
     );
   }
 }
